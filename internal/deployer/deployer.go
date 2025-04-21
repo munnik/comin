@@ -128,7 +128,7 @@ func New(deployFunc DeployFunc, previousDeployment *Deployment) *Deployer {
 
 // Submit submits a generation to be deployed. If a deployment is
 // running, this generation will be deployed once the current
-// deployment is finished. If this generation is the same than the one
+// deployment is finished. If this generation is the same as the one
 // of the last deployment, this generation is skipped.
 func (d *Deployer) Submit(generation builder.Generation) {
 	logrus.Infof("deployer: submiting generation %s", generation.UUID)
@@ -140,7 +140,7 @@ func (d *Deployer) Submit(generation builder.Generation) {
 		default:
 		}
 	} else {
-		logrus.Infof("deployer: skipping deployment of the generation %s because it is the same than the last deployment", generation.UUID)
+		logrus.Infof("deployer: skipping deployment of the generation %s because it is the same as the last deployment", generation.UUID)
 	}
 	d.mu.Unlock()
 }
