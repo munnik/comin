@@ -32,7 +32,7 @@ in {
     services.comin.package = lib.mkDefault pkgs.comin or self.packages.${system}.comin or null;
     systemd.services.comin = {
       wantedBy = [ "multi-user.target" ];
-      path = [ config.nix.package ];
+      path = [ config.nix.package pkgs.openssh ];
       # The comin service is restarted by comin itself when it
       # detects the unit file changed.
       restartIfChanged = false;
